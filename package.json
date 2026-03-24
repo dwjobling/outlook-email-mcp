@@ -5,6 +5,10 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "bin": {
     "outlook-email-mcp": "./dist/server.js"
   },
@@ -12,7 +16,8 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "test": "jest --runInBand",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
@@ -23,6 +28,17 @@
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dwjobling/outlook-email-mcp.git"
+  },
+  "homepage": "https://github.com/dwjobling/outlook-email-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/dwjobling/outlook-email-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"
   },

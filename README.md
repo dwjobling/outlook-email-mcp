@@ -28,7 +28,7 @@ npm install outlook-email-mcp
 Or for development:
 
 ```bash
-git clone <repository>
+git clone https://github.com/dwjobling/outlook-email-mcp.git
 cd outlook-email-mcp
 npm install
 npm run build
