@@ -26,14 +26,10 @@ An MCP (Model Context Protocol) server that enables sending emails via Microsoft
 
 ## Installation
 
-### One-Click Install (VS Code)
+#### ✨ One-Click Install
 
-Install directly into VS Code as an MCP server — no manual config required:
-
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_MCP_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](vscode:mcp/install?%7B%22name%22%3A%22outlook-email%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22outlook-email-mcp%22%5D%7D)
-[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_MCP_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](vscode-insiders:mcp/install?%7B%22name%22%3A%22outlook-email%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22outlook-email-mcp%22%5D%7D)
-
-> **Note:** Requires [VS Code](https://code.visualstudio.com/) with GitHub Copilot. Clicking the button will prompt VS Code to add this MCP server to your workspace configuration automatically.
+[![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-Install_Outlook_Email_MCP_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=outlook-email-mcp&config=%7B%20%22type%22%3A%20%22stdio%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22-y%22%2C%20%22outlook-email-mcp%22%5D%7D)
+[![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Outlook_Email_MCP_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=outlook-email-mcp&quality=insiders&config=%7B%20%22type%22%3A%20%22stdio%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22-y%22%2C%20%22outlook-email-mcp%22%5D%7D)
 
 ### Manual Install (npm)
 
