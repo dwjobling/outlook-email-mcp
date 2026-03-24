@@ -26,6 +26,9 @@ coverage/
 Thumbs.db
 .DS_Store
 
+# npm pack artifacts
+*.tgz
+
 # Logs
 logs/
 *.log

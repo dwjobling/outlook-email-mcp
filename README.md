@@ -1,5 +1,10 @@
 # Outlook Email MCP
 
+[![npm version](https://img.shields.io/npm/v/outlook-email-mcp.svg?style=flat-square)](https://www.npmjs.com/package/outlook-email-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/outlook-email-mcp.svg?style=flat-square)](https://www.npmjs.com/package/outlook-email-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Platform: Windows](https://img.shields.io/badge/Platform-Windows-0078d4.svg?style=flat-square&logo=windows&logoColor=white)](https://github.com/dwjobling/outlook-email-mcp)
+
 An MCP (Model Context Protocol) server that enables sending emails via Microsoft Outlook COM interop on Windows.
 
 ## Features
@@ -21,8 +26,32 @@ An MCP (Model Context Protocol) server that enables sending emails via Microsoft
 
 ## Installation
 
+### One-Click Install (VS Code)
+
+Install directly into VS Code as an MCP server — no manual config required:
+
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_MCP_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](vscode:mcp/install?%7B%22name%22%3A%22outlook-email%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22outlook-email-mcp%22%5D%7D)
+[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_MCP_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](vscode-insiders:mcp/install?%7B%22name%22%3A%22outlook-email%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22outlook-email-mcp%22%5D%7D)
+
+> **Note:** Requires [VS Code](https://code.visualstudio.com/) with GitHub Copilot. Clicking the button will prompt VS Code to add this MCP server to your workspace configuration automatically.
+
+### Manual Install (npm)
+
 ```bash
 npm install outlook-email-mcp
+```
+
+Or add to your `.vscode/mcp.json` manually:
+
+```json
+{
+  "servers": {
+    "outlook-email": {
+      "command": "npx",
+      "args": ["-y", "outlook-email-mcp"]
+    }
+  }
+}
 ```
 
 Or for development:
