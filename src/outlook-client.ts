@@ -155,10 +155,11 @@ Write-Output $outlook.Version
   }
 
   private async sendViaPowerShell(request: EmailRequest): Promise<string> {
-    const footnoteText = "This email was sent via an MCP server tool.";
+    const footnoteHtml = `Sent using <a href="https://github.com/dwjobling/outlook-email-mcp">outlook-email-mcp</a>.`;
+    const footnoteText = "Sent using outlook-email-mcp: https://github.com/dwjobling/outlook-email-mcp";
     const bodyWithFootnote =
       request.bodyFormat === "html"
-        ? `${request.body}<hr><p><em>${footnoteText}</em></p>`
+        ? `${request.body}<hr><p><em>${footnoteHtml}</em></p>`
         : `${request.body}\n\n---\n${footnoteText}`;
 
     const requestForScript = {
