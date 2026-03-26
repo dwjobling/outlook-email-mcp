@@ -162,8 +162,14 @@ Write-Output $outlook.Version
         ? `${request.body}<hr><p><em>${footnoteHtml}</em></p>`
         : `${request.body}\n\n---\n${footnoteText}`;
 
+    const toSemicolons = (s: string | undefined) =>
+      s?.replace(/,/g, ";");
+
     const requestForScript = {
       ...request,
+      to: toSemicolons(request.to) ?? request.to,
+      cc: toSemicolons(request.cc),
+      bcc: toSemicolons(request.bcc),
       body: bodyWithFootnote,
       attachments: (request.attachments ?? []).map((attachment) =>
         path.resolve(attachment)
