@@ -1,5 +1,6 @@
 import { EmailRequest, EmailResponse } from "./types.js";
 import * as fs from "fs";
+import * as os from "os";
 import * as path from "path";
 import { execFile } from "child_process";
 
@@ -230,30 +231,43 @@ Write-Output $result
   }
 
   private async runPowerShell(script: string): Promise<string> {
-    const encodedCommand = Buffer.from(script, "utf16le").toString("base64");
+    const scriptPath = path.join(
+      os.tmpdir(),
+      `outlook-mcp-${process.pid}-${Date.now()}.ps1`
+    );
 
-    return new Promise((resolve, reject) => {
-      execFile(
-        "powershell.exe",
-        [
-          "-NoProfile",
-          "-NonInteractive",
-          "-ExecutionPolicy",
-          "Bypass",
-          "-EncodedCommand",
-          encodedCommand,
-        ],
-        { maxBuffer: 1024 * 1024 },
-        (error, stdout, stderr) => {
-          if (error) {
-            const message = stderr?.trim() || error.message;
-            reject(new Error(message));
-            return;
+    try {
+      fs.writeFileSync(scriptPath, script, "utf8");
+
+      return await new Promise((resolve, reject) => {
+        execFile(
+          "powershell.exe",
+          [
+            "-NoProfile",
+            "-NonInteractive",
+            "-ExecutionPolicy",
+            "Bypass",
+            "-File",
+            scriptPath,
+          ],
+          { maxBuffer: 1024 * 1024 },
+          (error, stdout, stderr) => {
+            if (error) {
+              const message = stderr?.trim() || error.message;
+              reject(new Error(message));
+              return;
+            }
+            resolve(stdout ?? "");
           }
-          resolve(stdout ?? "");
-        }
-      );
-    });
+        );
+      });
+    } finally {
+      try {
+        fs.unlinkSync(scriptPath);
+      } catch {
+        // Ignore cleanup errors
+      }
+    }
   }
 
   private parseJsonResult(output: string): Record<string, unknown> | null {
